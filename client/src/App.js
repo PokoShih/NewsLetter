@@ -9,8 +9,9 @@ import {
 } from "react-router-dom";
 import Promotions from "./pages/PromotionsPage";
 import News from "./pages/NewsPage";
-import SignIn from "./pages/SignIn";
+import SignIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
+import AdminContent from "./pages/adminContent";
 
 
 export default function App() {
@@ -25,7 +26,12 @@ export default function App() {
         </ul> */}
       <Link
         to="/login">
-        <Button>Admin Page
+        <Button>Admin Login
+                </Button>
+      </Link>
+      <Link
+        to="/adminContent">
+        <Button>Admin Content
                 </Button>
       </Link>
       <Link
@@ -37,6 +43,10 @@ export default function App() {
         <Route
           path="/login">
           <SignIn />
+        </Route>
+        <Route
+          path="/adminContent">
+          <AdminContent />
         </Route>
         <Route
           path="/signup">

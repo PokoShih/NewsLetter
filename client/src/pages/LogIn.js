@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -58,17 +58,15 @@ export default function SignIn() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   let history = useHistory();
-
-  React.useEffect(() => {
-    if (isAuthenticated === true) {
+  
+  useEffect(()=>{
+    if(isAuthenticated===true){
       history.push("/");
-    }
-  }, [isAuthenticated]);
+    };
+  },[isAuthenticated])
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("worked");
-    setIsAuthenticated(true);
     const data = {
       email,
       password,
@@ -76,9 +74,13 @@ export default function SignIn() {
     axios
       .post('/api/login', data)
       .then((res) => {
-        console.log(res);
+        setIsAuthenticated(true);
+        console.log(isAuthenticated);
+        
       })
       .catch(err => {
+        console.log("no");
+        setIsAuthenticated(false);
         console.error(err);
       });
   }

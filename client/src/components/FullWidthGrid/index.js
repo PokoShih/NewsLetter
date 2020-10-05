@@ -60,10 +60,10 @@ export default function FullWidthGrid() {
       </Grid>
 
       <Grid container spacing={3}>
-        <Grid item xs>
+        <Grid item xs={6}>
           <PromotionsPage />
         </Grid>
-        <Grid item xs>
+        <Grid item xs={6}>
           <NewsPage />
         </Grid>
       </Grid>

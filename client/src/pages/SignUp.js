@@ -60,6 +60,8 @@ export default function SignUp() {
   React.useEffect(() => {
     if (isAuthenticated === true) {
       history.push("/");
+    }else{
+      history.push("/signup");
     }
   }, [isAuthenticated]);
 
