@@ -1,5 +1,4 @@
-
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -17,6 +16,7 @@ import {
   useHistory
 } from "react-router-dom";
 import axios from 'axios';
+
 
 
 function Copyright() {
@@ -52,18 +52,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn(props) {
   const classes = useStyles();
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+  console.log(props);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+  // const [developerState, setDeveloperState] = useState({
+  //   isAuthenticated: false,
+  // })
   let history = useHistory();
-  
-  useEffect(()=>{
-    if(isAuthenticated===true){
+
+  useEffect(() => {
+    if (props.hello.isAuthenticated === true) {
       history.push("/");
     };
-  },[isAuthenticated])
+  }, [props.hello.isAuthenticated])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -71,16 +75,16 @@ export default function SignIn() {
       email,
       password,
     };
+
     axios
       .post('/api/login', data)
       .then((res) => {
-        setIsAuthenticated(true);
-        console.log(isAuthenticated);
-        
+        props.setDev({ ...props.hello, isAuthenticated: true });
+        console.log(props);
       })
       .catch(err => {
         console.log("no");
-        setIsAuthenticated(false);
+        props.setDev({...props.hello, isAuthenticated: false})
         console.error(err);
       });
   }

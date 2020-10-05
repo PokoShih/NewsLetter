@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -13,89 +14,91 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MultilineTextFields() {
     const classes = useStyles();
-    const [value, setValue] = React.useState('Controlled');
+    const [allValue, setAllValues] = React.useState({
+        adminSales:"",
+        adminPromotions:"",
+        adminNews:"",
+        adminSafety:"",
+        adminAchievements:"",
+        adminBirthdays:"",
+    });
 
-    const handleChange = (event) => {
-        setValue(event.target.value);
-    };
+    const handleChange = event => {
+        setAllValues({...allValue,[event.target.id]: event.target.value})
+    console.log(event.target.id)
+    console.log(event.target.value)
+    }
+
+    const handleSubmit = () => {
+        console.log(allValue);}
+    
 
     return (
         <form className={classes.root} noValidate autoComplete="off">
             <div>
                 <TextField
-                    id="standard-multiline-flexible"
-                    label="Multiline"
+                    id="adminSales"
+                    label="Sales"
+                    placeholder="Sales"
                     multiline
-                    rowsMax={4}
-                    value={value}
+                    rows={4}
+                    variant="filled"
                     onChange={handleChange}
                 />
                 <TextField
-                    id="standard-textarea"
-                    label="Multiline Placeholder"
-                    placeholder="Placeholder"
-                    multiline
-                />
-                <TextField
-                    id="standard-multiline-static"
-                    label="Multiline"
+                    id="adminPromotions"
+                    label="Promos"
+                    placeholder="Promos"
                     multiline
                     rows={4}
-                    defaultValue="Default Value"
-                />
-            </div>
-            <div>
-                <TextField
-                    id="filled-multiline-flexible"
-                    label="Multiline"
-                    multiline
-                    rowsMax={4}
-                    value={value}
+                    variant="filled"
                     onChange={handleChange}
-                    variant="filled"
                 />
                 <TextField
-                    id="filled-textarea"
-                    label="Multiline Placeholder"
-                    placeholder="Placeholder"
-                    multiline
-                    variant="filled"
-                />
-                <TextField
-                    id="filled-multiline-static"
-                    label="Multiline"
+                    id="adminNews"
+                    label="News"
+                    placeholder="News"
                     multiline
                     rows={4}
-                    defaultValue="Default Value"
                     variant="filled"
-                />
-            </div>
-            <div>
-                <TextField
-                    id="outlined-multiline-flexible"
-                    label="Multiline"
-                    multiline
-                    rowsMax={4}
-                    value={value}
                     onChange={handleChange}
-                    variant="outlined"
                 />
                 <TextField
-                    id="outlined-textarea"
-                    label="Multiline Placeholder"
-                    placeholder="Placeholder"
-                    multiline
-                    variant="outlined"
-                />
-                <TextField
-                    id="outlined-multiline-static"
-                    label="Multiline"
+                    id="adminSafety"
+                    label="Safety"
+                    placeholder="Safety"
                     multiline
                     rows={4}
-                    defaultValue="Default Value"
-                    variant="outlined"
+                    variant="filled"
+                    onChange={handleChange}
+                />
+                <TextField
+                    id="adminAchievements"
+                    label="Achievements"
+                    placeholder="Achievements"
+                    multiline
+                    rows={4}
+                    variant="filled"
+                    onChange={handleChange}
+                />
+                <TextField
+                    id="adminBirthdays"
+                    label="Birthdays"
+                    placeholder="Birthdays"
+                    multiline
+                    rows={4}
+                    variant="filled"
+                    onChange={handleChange}
                 />
             </div>
+            <Button 
+            variant="contained" 
+            color="primary" 
+            disableElevation
+            onClick={handleSubmit}
+            >
+                Submit
+            </Button>
         </form>
     );
 }

@@ -28,9 +28,9 @@ function NewsPage() {
         <PublicIcon style={{ fontSize: 50 }} />
         <h3
           onClick={() => {
-            console.log("worked?");
             if (showNews === true) {
               setShowNews(false);
+              console.log(showNews)
             } else {
               setShowNews(true);
             }
