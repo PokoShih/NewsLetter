@@ -27,6 +27,20 @@ router.post("/api/signup", (req, res) => {
         });
 });
 
+router.post("/api/admincontent", (req, res) => {
+
+    db.adminData.create({
+        email: req.body.email,
+        password: req.body.password
+    })
+        .then(() => {
+            res.json("Success");
+        })
+        .catch(err => {
+            res.status(401).json(err);
+        });
+});
+
 
 
 module.exports = router;

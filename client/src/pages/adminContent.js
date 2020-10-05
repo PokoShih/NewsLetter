@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { useHistory } from "react-router-dom";
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -13,25 +15,39 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MultilineTextFields() {
+    let history = useHistory();
     const classes = useStyles();
     const [allValue, setAllValues] = React.useState({
-        adminSales:"",
-        adminPromotions:"",
-        adminNews:"",
-        adminSafety:"",
-        adminAchievements:"",
-        adminBirthdays:"",
+        adminSales: "",
+        adminPromotions: "",
+        adminNews: "",
+        adminSafety: "",
+        adminAchievements: "",
+        adminBirthdays: "",
     });
 
     const handleChange = event => {
-        setAllValues({...allValue,[event.target.id]: event.target.value})
-    console.log(event.target.id)
-    console.log(event.target.value)
+        setAllValues({ ...allValue, [event.target.id]: event.target.value })
+        console.log(event.target.id)
+        console.log(event.target.value)
     }
 
     const handleSubmit = () => {
-        console.log(allValue);}
-    
+        console.log(allValue);
+        if (allValue != "") {
+            history.push("/");
+            const data = allValue;
+            axios
+                .post('/api/admincontent', data)
+                .then((res) => {
+                    console.log(res);
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        }
+
+    }
 
     return (
         <form className={classes.root} noValidate autoComplete="off">
@@ -91,11 +107,11 @@ export default function MultilineTextFields() {
                     onChange={handleChange}
                 />
             </div>
-            <Button 
-            variant="contained" 
-            color="primary" 
-            disableElevation
-            onClick={handleSubmit}
+            <Button
+                variant="contained"
+                color="primary"
+                disableElevation
+                onClick={handleSubmit}
             >
                 Submit
             </Button>

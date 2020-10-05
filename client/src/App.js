@@ -15,8 +15,6 @@ import SignUp from "./pages/SignUp";
 import AdminContent from "./pages/adminContent";
 import DeveloperContext from "./utils/DeveloperContext";
 
-
-
 export default function App() {
 
   const [developerState, setDeveloperState] = React.useState({
@@ -27,53 +25,51 @@ export default function App() {
   const handleLogOut = (event) => {
     event.preventDefault();
     console.log("logging out")
-      setDeveloperState(false);
-    };
+    setDeveloperState(false);
+  };
 
   return (
     <Router>
       <DeveloperContext.Provider >
-      {
+        {
           developerState.isAuthenticated ? (
             <div>
-
-                <Link
-                  to="/adminContent">
-                          <Button>Admin Content
+              <Link
+                to="/admincontent">
+                <Button>Admin Content
                           </Button>
-                </Link>
-                <Link
-                  to="/logout">
-                          <Button
-                          onClick={handleLogOut}
-                          >Log Out
+              </Link>
+              <Link
+                to="/logout">
+                <Button
+                  onClick={handleLogOut}
+                >Log Out
                           </Button>
-                </Link>
+              </Link>
             </div>
-          ):
-          (
-            <div>
+          ) :
+            (
+              <div>
                 <Link
                   to="/signup">
-                          <Button>SignUp
+                  <Button>SignUp
                           </Button>
                 </Link>
                 <Link
                   to="/login">
-                          <Button>Admin Login
+                  <Button>Admin Login
                           </Button>
                 </Link>
-            </div>
-          )
+              </div>
+            )
         }
-
       </DeveloperContext.Provider>
       <Switch>
         <Route
           path="/login">
-          <LogIn 
-          hello={developerState}
-          setDev={setDeveloperState}
+          <LogIn
+            hello={developerState}
+            setDev={setDeveloperState}
           />
         </Route>
         <Route
