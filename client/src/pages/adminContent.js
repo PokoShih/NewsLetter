@@ -28,8 +28,8 @@ export default function MultilineTextFields() {
 
     const handleChange = event => {
         setAllValues({ ...allValue, [event.target.id]: event.target.value })
-        console.log(event.target.id)
-        console.log(event.target.value)
+        // console.log(event.target.id)
+        // console.log(event.target.value)
     }
 
     const handleSubmit = () => {
