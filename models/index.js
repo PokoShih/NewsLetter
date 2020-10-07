@@ -1,3 +1,4 @@
 module.exports = {
-  adminData: require("./adminData")
+  adminData: require("./adminData"),
+  adminContent:require("./adminContent")
 };
