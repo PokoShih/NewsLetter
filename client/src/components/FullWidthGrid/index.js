@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -8,6 +8,8 @@ import FlareIcon from "@material-ui/icons/Flare";
 import CakeIcon from "@material-ui/icons/Cake";
 import PromotionsPage from "../../pages/PromotionsPage";
 import NewsPage from "../../pages/NewsPage";
+import API from "../../utils/API";
+import DataContext from "../../utils/DataContext";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,20 +43,42 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Sales = "$840,000, fulfilment at 97.94% 2.28% missing Items";
-const Safety = "Three Point of Contact";
-const Achievement = "$1.2M, new high";
-const Birthdays = "Poko's birthday 18th September this Friday!";
+
+
 
 export default function FullWidthGrid() {
   const classes = useStyles();
+  const [adminContent, setAdminContent] = React.useState({
+    adminSales:"",
+    adminSafety:"",
+    adminAchievements:"",
+    adminBirthdays:""
+  });
+
+  useEffect(() => {
+    API.getData()
+        .then((res => {
+          setAdminContent(res.data[0])
+        }))
+        .catch(err => console.log(err));
+  }, [])
+
+  useEffect(() => {
+        if (adminContent){
+          console.log(adminContent);
+          // Sales = adminContent.data[0].adminSales;
+        }
+  }, [adminContent])
+
+  
+
   return (
     <div className={classes.root}>
-
-      <Grid container spacing={3}>
+<DataContext.Provider value={adminContent}>
+<Grid container spacing={3}>
         <Grid item xs>
           <Paper className={classes.Sales}>
-            <AttachMoney style={{ fontSize: 50 }} />     Last Week's Sales: {Sales}
+            <AttachMoney style={{ fontSize: 50 }} />     Last Week's Sales: {adminContent.adminSales}
           </Paper>
         </Grid>
       </Grid>
@@ -72,22 +96,24 @@ export default function FullWidthGrid() {
         <Grid item xs>
           <Paper className={classes.paper}>
             <CheckIcon style={{ fontSize: 50 }} />     Safety:
-            <div> {Safety}</div>
+            <div> {adminContent.adminSafety}</div>
           </Paper>
         </Grid>
         <Grid item xs>
           <Paper className={classes.paper}>
             <FlareIcon style={{ fontSize: 50 }} />     Achievement:
-            <div> {Achievement}</div>
+            <div> {adminContent.adminAchievements}</div>
           </Paper>
         </Grid>
         <Grid item xs>
           <Paper className={classes.paper}>
             <CakeIcon style={{ fontSize: 50 }} />     Birthdays:
-            <div> {Birthdays}</div>
+            <div> {adminContent.adminBirthdays}</div>
           </Paper>
         </Grid>
       </Grid>
+</DataContext.Provider>
+      
     </div>
   );
 }

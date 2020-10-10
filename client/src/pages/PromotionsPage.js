@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import DataContext from "../utils/DataContext";
 
 const Promotions = "Coca Cola 600mL $2 each with Coles Discount Card";
 
@@ -26,9 +27,13 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-function PromotionsPage() {
+function PromotionsPage(props) {
   const classes = useStyles();
   const [showPromo, setShowPromo] = React.useState(false);
+
+  const {adminPromotions} = useContext(DataContext);
+  
+
   return (
     <div>
           <Paper className={classes.Promo}>
@@ -43,7 +48,7 @@ function PromotionsPage() {
                 }
               }}
             >Promotions:</h3>
-            <div> {Promotions}</div>
+            <div> {adminPromotions}</div>
             {
               showPromo && (
               <div>blablablablablablablablablablablablablablablablablablablablablablablabla</div>

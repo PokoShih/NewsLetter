@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import PublicIcon from '@material-ui/icons/Public';
+import DataContext from "../utils/DataContext";
 
 const News = "Mimi got Towed";
 
@@ -21,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
 function NewsPage() {
   const classes = useStyles();
   const [showNews, setShowNews] = React.useState(false);
+
+  const {adminNews} = useContext(DataContext);
+
   return (
     <div>
       <Paper
@@ -38,7 +42,7 @@ function NewsPage() {
         >News:
                 </h3>
         <div>
-          {News}
+          {adminNews}
         </div>
         {
           showNews && (

@@ -4,6 +4,11 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { editorState } from 'draft-js';
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,12 +51,24 @@ export default function MultilineTextFields() {
                     console.error(err);
                 });
         }
-
     }
+
+    const onEditorStateChange = (editorState) => {
+        this.setState({
+            editorState,
+        });
+    };
 
     return (
         <form className={classes.root} noValidate autoComplete="off">
             <div>
+                <Editor
+                    editorState={editorState}
+                    toolbarClassName="toolbarClassName"
+                    wrapperClassName="wrapperClassName"
+                    editorClassName="editorClassName"
+                    onEditorStateChange={onEditorStateChange}
+                />
                 <TextField
                     id="adminSales"
                     label="Sales"

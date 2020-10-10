@@ -13,6 +13,11 @@ const adminSchema = new Schema({
     type: String, 
     required: true
   },
+  admin:{
+    type: Boolean,
+    default: false,
+    required: true
+  }
 },{timestamps: true});
 
 adminSchema.pre('save', function(next){

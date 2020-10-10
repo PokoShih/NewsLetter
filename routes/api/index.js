@@ -12,7 +12,6 @@ router.post("/api/login", passport.authenticate("local"), (req, res) => {
     });
 });
 
-
 router.post("/api/signup", (req, res) => {
 
     db.adminData.create({
@@ -29,9 +28,13 @@ router.post("/api/signup", (req, res) => {
 
 router.post("/api/admincontent", (req, res) => {
 
-    db.adminData.create({
-        email: req.body.email,
-        password: req.body.password
+    db.adminContent.update({
+        adminSales: req.body.adminSales,
+        adminPromotions: req.body.adminPromotions,
+        adminNews: req.body.adminNews,
+        adminSafety: req.body.adminSafety,
+        adminAchievements: req.body.adminAchievements,
+        adminBirthdays: req.body.adminBirthdays,
     })
         .then(() => {
             res.json("Success");
@@ -41,6 +44,18 @@ router.post("/api/admincontent", (req, res) => {
         });
 });
 
+router.get("/api/admincontent",(req,res)=>{
+
+    db.adminContent.find({
+    })
+    .then((data)=>{
+        console.log(data)
+        res.json(data);
+    })
+    .catch(err => {
+        res.status(401).json(err);
+    });
+})
 
 
 module.exports = router;

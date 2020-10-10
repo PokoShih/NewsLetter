@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
+import DeveloperContext from "../utils/DeveloperContext"
 
 
 
@@ -50,9 +51,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn(props) {
+export default function LogIn() {
   const classes = useStyles();
-  console.log(props);
+  const { developerState, setDeveloperState } = useContext(DeveloperContext);
+
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -62,10 +64,10 @@ export default function SignIn(props) {
   let history = useHistory();
 
   useEffect(() => {
-    if (props.hello.isAuthenticated === true) {
+    if (developerState.isAuthenticated === true) {
       history.push("/");
     };
-  }, [props.hello.isAuthenticated])
+  }, [developerState])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -77,12 +79,12 @@ export default function SignIn(props) {
     axios
       .post('/api/login', data)
       .then((res) => {
-        props.setDev({ ...props.hello, isAuthenticated: true });
-        console.log(props);
+        setDeveloperState({isAuthenticated: true});
+      
       })
       .catch(err => {
         console.log("no");
-        props.setDev({...props.hello, isAuthenticated: false})
+        setDeveloperState({isAuthenticated: false});
         console.error(err);
       });
   }
