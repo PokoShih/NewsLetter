@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
   Promo: {
     padding: theme.spacing(2),
-    textAlign: 'center',
+    textAlign: 'left',
     background: "#5FB8B6",
     color: "#FFFFFF",
     height: 300
@@ -48,10 +48,10 @@ function PromotionsPage(props) {
                 }
               }}
             >Promotions:</h3>
-            <div> {adminPromotions}</div>
+            <div dangerouslySetInnerHTML={{__html:adminPromotions}}/>
             {
-              showPromo && (
-              <div>blablablablablablablablablablablablablablablablablablablablablablablabla</div>
+              showPromo && (<></>
+              // <div>blablablablablablablablablablablablablablablablablablablablablablablabla</div>
               )
             }
           </Paper>

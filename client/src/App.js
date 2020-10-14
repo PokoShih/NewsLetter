@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import FullWidthGrid from './components/FullWidthGrid';
@@ -8,23 +8,21 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import {
-  useHistory
-} from "react-router-dom";
+
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import AdminContent from "./pages/adminContent";
 import DeveloperContext from "./utils/DeveloperContext";
 import logo from "./components/img/logo.png";
 import Grid from "@material-ui/core/Grid";
-import Icon from '@material-ui/core/Icon';
+// import Icon from '@material-ui/core/Icon';
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
   },
   // div:{
-    // alignContent: 'center'
+  // alignContent: 'center'
   // }
   // media: {
   //   height: 140,
@@ -37,99 +35,98 @@ export default function App() {
   const classes = useStyles();
   const [developerState, setDeveloperState] = React.useState({
     isAuthenticated: false,
+    admin: false,
   })
+  // const [admin, setAdmin] = React.useState("false");
   const value = useMemo(() => ({ developerState, setDeveloperState }), [developerState, setDeveloperState]);
-  // let history = useHistory();
 
+  console.log(value)
   const handleLogOut = (event) => {
     event.preventDefault();
     console.log("logging out")
     setDeveloperState(false);
   };
-  // const store = {
-  //   developerState: [developerState, setDeveloperState]
-  // }
-
 
   return (
     <Router>
-      
       <DeveloperContext.Provider value={value}>
-      <Grid container spacing={3}>
-        <Grid item xs={8}>
-        <Link
-          to="/">
-          {/* <CardMedia
+        <Grid container spacing={3}>
+          <Grid item xs={8}>
+            <Link
+              to="/">
+              {/* <CardMedia
             className={classes.media}
             image={logo}
             title="Home"
           /> */}
-          <img
-            src = {logo}
-            alt = "company Logo"
-            height = "65px"
-            width = "200px"
-            >
-          </img>
-        </Link>
-        </Grid>
-        <Grid item xs={4}>
-        {
-          developerState.isAuthenticated ? (
-            <div className={classes.div}>
-              <Link
-                to="/admincontent">
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.button}
-                >
-                  Edit Content
-                </Button>
-              </Link>
-              <Link
-                to="/logout">
-                <Button
-                  onClick={handleLogOut}
-                  variant="contained"
-                  color="primary"
-                  className={classes.button}
-                >
-                  Log Out
-                </Button>
-              </Link>
-            </div>
-          ) :
-            (
-              <div className={classes.div}>
-                <Link
-                  to="/signup">
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                  >
-                    Sign Up
-                  </Button>
-                </Link>
-                <Link
-                  to="/login">
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                  >
-                      Login
-                  </Button>
-                </Link>
-              </div>
-            )
-        }
-        </Grid>
-      </Grid>
+              <img
+                src={logo}
+                alt="company Logo"
+                height="65px"
+                width="200px"
+              >
+              </img>
+            </Link>
+          </Grid>
+          <Grid item xs={4}>
+            {
+              developerState.isAuthenticated ? (
+                <div className={classes.div}>
+                  {developerState.isAdmin ? (
 
-        
-
+                    <Link
+                      to="/admincontent">
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                      >
+                        Edit Content
+                </Button>
+                    </Link>
+                  ) :
+                    (<></>)
+                  }
+                  <Link
+                    to="/logout">
+                    <Button
+                      onClick={handleLogOut}
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                    >
+                      Log Out
+                </Button>
+                  </Link>
+                </div>
+              ) :
+                (
+                  <div className={classes.div}>
+                    <Link
+                      to="/signup">
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                      >
+                        Sign Up
+                  </Button>
+                    </Link>
+                    <Link
+                      to="/login">
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                      >
+                        Login
+                  </Button>
+                    </Link>
+                  </div>
+                )
+            }
+          </Grid>
+        </Grid>
         <Switch>
           <Route
             path="/login" component={LogIn}>

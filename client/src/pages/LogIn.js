@@ -57,6 +57,7 @@ export default function LogIn() {
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [admin, setAdmin] = React.useState("false");
 
   // const [developerState, setDeveloperState] = useState({
   //   isAuthenticated: false,
@@ -74,13 +75,13 @@ export default function LogIn() {
     const data = {
       email,
       password,
+      admin,
     };
-
     axios
       .post('/api/login', data)
       .then((res) => {
-        setDeveloperState({isAuthenticated: true});
-      
+        console.log(res.data.admin);
+        setDeveloperState({isAuthenticated: true, isAdmin: res.data.admin});
       })
       .catch(err => {
         console.log("no");

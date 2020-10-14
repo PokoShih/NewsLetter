@@ -5,18 +5,26 @@ const passport = require("../../config/passport");
 router.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
     // console.log(res);
-    console.log("response?")
-    res.json({
-        email: req.user.email,
-        id: req.user.id
-    });
+    console.log(req.user);
+    db.adminData.findOne({email:req.user.email})
+    .then((user)=>{
+        res.json(
+            // {
+            user
+            // email: req.user.email,
+            // id: req.user.id,
+            // admin: req.user.admin,
+        // }
+        );
+    })
 });
 
 router.post("/api/signup", (req, res) => {
 
     db.adminData.create({
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        
     })
         .then(() => {
             res.json("Success");

@@ -41,15 +41,13 @@ function NewsPage() {
           }}
         >News:
                 </h3>
-        <div>
-          {adminNews}
-        </div>
+        <div dangerouslySetInnerHTML={{__html:adminNews}}/>
         {
           showNews && (
             <div>
-              <ul>Tash is back</ul>
+              {/* <ul>Tash is back</ul>
               <ul>Gia is smashed</ul>
-              <ul>Chase is crap</ul>
+              <ul>Chase is crap</ul> */}
             </div>
           )
         }

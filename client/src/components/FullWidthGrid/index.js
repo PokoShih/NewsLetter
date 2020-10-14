@@ -43,9 +43,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
-
 export default function FullWidthGrid() {
   const classes = useStyles();
   const [adminContent, setAdminContent] = React.useState({
@@ -63,22 +60,20 @@ export default function FullWidthGrid() {
         .catch(err => console.log(err));
   }, [])
 
-  useEffect(() => {
-        if (adminContent){
-          console.log(adminContent);
-          // Sales = adminContent.data[0].adminSales;
-        }
-  }, [adminContent])
-
-  
+  // useEffect(() => {
+  //       if (adminContent){
+  //         console.log(adminContent);
+  //         // Sales = adminContent.data[0].adminSales;
+  //       }
+  // }, [adminContent])
 
   return (
     <div className={classes.root}>
 <DataContext.Provider value={adminContent}>
-<Grid container spacing={3}>
+      <Grid container spacing={3}>
         <Grid item xs>
           <Paper className={classes.Sales}>
-            <AttachMoney style={{ fontSize: 50 }} />     Last Week's Sales: {adminContent.adminSales}
+            <AttachMoney style={{ fontSize: 50 }} /> Last Week's Sales: <div dangerouslySetInnerHTML={{__html:adminContent.adminSales}}/>
           </Paper>
         </Grid>
       </Grid>
@@ -96,19 +91,19 @@ export default function FullWidthGrid() {
         <Grid item xs>
           <Paper className={classes.paper}>
             <CheckIcon style={{ fontSize: 50 }} />     Safety:
-            <div> {adminContent.adminSafety}</div>
+            <div dangerouslySetInnerHTML={{__html:adminContent.adminSafety}}/>
           </Paper>
         </Grid>
         <Grid item xs>
           <Paper className={classes.paper}>
             <FlareIcon style={{ fontSize: 50 }} />     Achievement:
-            <div> {adminContent.adminAchievements}</div>
+            <div dangerouslySetInnerHTML={{__html:adminContent.adminAchievements}}/>
           </Paper>
         </Grid>
         <Grid item xs>
           <Paper className={classes.paper}>
             <CakeIcon style={{ fontSize: 50 }} />     Birthdays:
-            <div> {adminContent.adminBirthdays}</div>
+            <div dangerouslySetInnerHTML={{__html:adminContent.adminBirthdays}}/>
           </Paper>
         </Grid>
       </Grid>
