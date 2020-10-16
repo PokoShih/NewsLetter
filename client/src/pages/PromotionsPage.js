@@ -10,19 +10,11 @@ const Promotions = "Coca Cola 600mL $2 each with Coles Discount Card";
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
-    textAlign: 'left',
-    color: "#676767",
-    background: "#E3E3E3",
-    height: 300,
-    borderColor: "grey.500"
-  },
-
-  Promo: {
-    padding: theme.spacing(2),
-    textAlign: 'left',
-    background: "#5FB8B6",
+    textAlign: "left",
     color: "#FFFFFF",
-    height: 300
+    background: "#C66AA1",
+    height: "30vh",
+    borderColor: "grey.500",
   }
   }));
 
@@ -36,9 +28,9 @@ function PromotionsPage(props) {
 
   return (
     <div>
-          <Paper className={classes.Promo}>
-            <ThumbUpIcon style={{ fontSize: 50 }} />
-            <h3
+          <Paper className={classes.paper}>
+            <ThumbUpIcon style={{ fontSize: 30 }} />
+            {/* <h3
               onClick={() => {
                 console.log("worked?");
                 if (showPromo === true) {
@@ -47,7 +39,8 @@ function PromotionsPage(props) {
                   setShowPromo(true);
                 }
               }}
-            >Promotions:</h3>
+            >Promotions:</h3> */}
+            Promotions:
             <div dangerouslySetInnerHTML={{__html:adminPromotions}}/>
             {
               showPromo && (<></>

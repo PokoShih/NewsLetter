@@ -1,0 +1,6 @@
+/* #root {
+    background-color:#E18A1E;
+} */
+html, body, #app, #app>div {
+    height: 100%
+    }

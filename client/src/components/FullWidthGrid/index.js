@@ -22,24 +22,17 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: "left",
-    color: "#676767",
-    background: "#E3E3E3",
-    height: 250,
+    color: "#FFFFFF",
+    background: "#C66AA1",
+    height: "30vh",
     borderColor: "grey.500",
   },
-  title: {
+  bottom: {
     padding: theme.spacing(2),
-    textAlign: "center",
+    textAlign: "left",
+    background: "#C66AA1",
     color: "#FFFFFF",
-    background: "#E01A22",
-    height: 100,
-  },
-  Sales: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    background: "#5FB8B6",
-    color: "#FFFFFF",
-    height: 100,
+    height: "25vh",
   },
 }));
 
@@ -70,39 +63,40 @@ export default function FullWidthGrid() {
   return (
     <div className={classes.root}>
 <DataContext.Provider value={adminContent}>
-      <Grid container spacing={3}>
-        <Grid item xs>
-          <Paper className={classes.Sales}>
-            <AttachMoney style={{ fontSize: 50 }} /> Last Week's Sales: <div dangerouslySetInnerHTML={{__html:adminContent.adminSales}}/>
+      <Grid container spacing={1}>
+      <Grid item xs={6}>
+          <Paper className={classes.paper}>
+            <CheckIcon style={{ fontSize: 30 }} />     Safety:
+            <div dangerouslySetInnerHTML={{__html:adminContent.adminSafety}}/>
+          </Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>
+            <FlareIcon style={{ fontSize: 30 }} />     Achievement:
+            <div dangerouslySetInnerHTML={{__html:adminContent.adminAchievements}}/>
           </Paper>
         </Grid>
       </Grid>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={1}>
         <Grid item xs={6}>
           <PromotionsPage />
         </Grid>
         <Grid item xs={6}>
           <NewsPage />
         </Grid>
+        
       </Grid>
 
-      <Grid container spacing={3}>
-        <Grid item xs>
-          <Paper className={classes.paper}>
-            <CheckIcon style={{ fontSize: 50 }} />     Safety:
-            <div dangerouslySetInnerHTML={{__html:adminContent.adminSafety}}/>
+      <Grid container spacing={1}>
+      <Grid item xs={6}>
+          <Paper className={classes.bottom}>
+            <AttachMoney style={{ fontSize: 30 }} /> Last Week's Sales: <div dangerouslySetInnerHTML={{__html:adminContent.adminSales}}/>
           </Paper>
         </Grid>
-        <Grid item xs>
-          <Paper className={classes.paper}>
-            <FlareIcon style={{ fontSize: 50 }} />     Achievement:
-            <div dangerouslySetInnerHTML={{__html:adminContent.adminAchievements}}/>
-          </Paper>
-        </Grid>
-        <Grid item xs>
-          <Paper className={classes.paper}>
-            <CakeIcon style={{ fontSize: 50 }} />     Birthdays:
+        <Grid item xs={6}>
+          <Paper className={classes.bottom}>
+            <CakeIcon style={{ fontSize: 30 }} />     Birthdays:
             <div dangerouslySetInnerHTML={{__html:adminContent.adminBirthdays}}/>
           </Paper>
         </Grid>

@@ -9,11 +9,11 @@ const News = "Mimi got Towed";
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
-    textAlign: 'left',
-    color: "#676767",
-    background: "#E3E3E3",
-    height: 300,
-    borderColor: "grey.500"
+    textAlign: "left",
+    color: "#FFFFFF",
+    background: "#C66AA1",
+    height: "30vh",
+    borderColor: "grey.500",
   }
 
 }));
@@ -29,8 +29,8 @@ function NewsPage() {
     <div>
       <Paper
         className={classes.paper}>
-        <PublicIcon style={{ fontSize: 50 }} />
-        <h3
+        <PublicIcon style={{ fontSize: 30 }} />
+        {/* <h3
           onClick={() => {
             if (showNews === true) {
               setShowNews(false);
@@ -39,8 +39,9 @@ function NewsPage() {
               setShowNews(true);
             }
           }}
-        >News:
-                </h3>
+        >News: */}
+        News:
+                {/* </h3> */}
         <div dangerouslySetInnerHTML={{__html:adminNews}}/>
         {
           showNews && (
