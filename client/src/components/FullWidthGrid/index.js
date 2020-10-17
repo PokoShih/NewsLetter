@@ -50,7 +50,9 @@ export default function FullWidthGrid() {
   useEffect(() => {
     API.getData()
         .then((res => {
-          setAdminContent(res.data[0])
+          if(res.data && res.data.length > 0){
+            setAdminContent(res.data[0])
+          }
         }))
         .catch(err => console.log(err));
   }, [])
