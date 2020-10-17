@@ -67,13 +67,23 @@ export default function FullWidthGrid() {
       <Grid item xs={6}>
           <Paper className={classes.paper}>
             <CheckIcon style={{ fontSize: 30 }} />     Safety:
-            <div dangerouslySetInnerHTML={{__html:adminContent.adminSafety}}/>
+            {
+              adminContent ? (
+                <div dangerouslySetInnerHTML={{__html:adminContent.adminSafety}}/>
+              ):
+              (<></>)
+            }
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <FlareIcon style={{ fontSize: 30 }} />     Achievement:
-            <div dangerouslySetInnerHTML={{__html:adminContent.adminAchievements}}/>
+            {
+              adminContent ? (
+                <div dangerouslySetInnerHTML={{__html:adminContent.adminAchievements}}/>
+              ):
+              (<></>)
+            }
           </Paper>
         </Grid>
       </Grid>
@@ -91,13 +101,26 @@ export default function FullWidthGrid() {
       <Grid container spacing={1}>
       <Grid item xs={6}>
           <Paper className={classes.bottom}>
-            <AttachMoney style={{ fontSize: 30 }} /> Last Week's Sales: <div dangerouslySetInnerHTML={{__html:adminContent.adminSales}}/>
+            <AttachMoney style={{ fontSize: 30 }} /> Last Week's Sales: 
+            {
+              adminContent ? (
+                <div dangerouslySetInnerHTML={{__html:adminContent.adminSales}}/>
+              ):
+              (<></>)
+            }
+            
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.bottom}>
             <CakeIcon style={{ fontSize: 30 }} />     Birthdays:
-            <div dangerouslySetInnerHTML={{__html:adminContent.adminBirthdays}}/>
+            {
+              adminContent ? (
+                <div dangerouslySetInnerHTML={{__html:adminContent.adminBirthdays}}/>
+              ):
+              (<></>)
+            }
+            
           </Paper>
         </Grid>
       </Grid>
