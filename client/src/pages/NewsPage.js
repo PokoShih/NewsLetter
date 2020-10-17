@@ -23,7 +23,7 @@ function NewsPage() {
   const classes = useStyles();
   const [showNews, setShowNews] = React.useState(false);
 
-  const {adminNews} = useContext(DataContext);
+  const adminContext = useContext(DataContext);
 
   return (
     <div>
@@ -43,8 +43,8 @@ function NewsPage() {
         News:
                 {/* </h3> */}
         {
-          adminNews ? (
-            <div dangerouslySetInnerHTML={{__html:adminNews}}/>
+          adminContext.adminNews ? (
+            <div dangerouslySetInnerHTML={{__html:adminContext.adminNews}}/>
           ):(
             <></>
           )

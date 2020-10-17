@@ -23,7 +23,7 @@ function PromotionsPage(props) {
   const classes = useStyles();
   const [showPromo, setShowPromo] = React.useState(false);
 
-  const {adminPromotions} = useContext(DataContext);
+  const adminContext = useContext(DataContext);
   
 
   return (
@@ -42,8 +42,8 @@ function PromotionsPage(props) {
             >Promotions:</h3> */}
             Promotions:
             {
-          adminPromotions ? (
-            <div dangerouslySetInnerHTML={{__html:adminPromotions}}/>
+          adminContext.adminPromotions ? (
+            <div dangerouslySetInnerHTML={{__html:adminContext.adminPromotions}}/>
           ):(
             <></>
           )
