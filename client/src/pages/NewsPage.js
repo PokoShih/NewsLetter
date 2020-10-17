@@ -24,7 +24,7 @@ function NewsPage() {
   const [showNews, setShowNews] = React.useState(false);
 
   const adminContext = useContext(DataContext);
-  console.log(adminContext);
+  console.log(adminContext.adminNews);
   return (
     <div>
       <Paper

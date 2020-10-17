@@ -24,7 +24,7 @@ function PromotionsPage(props) {
   const [showPromo, setShowPromo] = React.useState(false);
 
   const adminContext = useContext(DataContext);
-  
+  console.log(adminContext)
 
   return (
     <div>
