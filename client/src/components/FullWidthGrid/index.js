@@ -42,7 +42,9 @@ export default function FullWidthGrid() {
     adminSales:"",
     adminSafety:"",
     adminAchievements:"",
-    adminBirthdays:""
+    adminBirthdays:"",
+    adminPromotions:"",
+    adminNews:"",
   });
 
   useEffect(() => {
