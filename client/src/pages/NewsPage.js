@@ -42,7 +42,13 @@ function NewsPage() {
         >News: */}
         News:
                 {/* </h3> */}
-        <div dangerouslySetInnerHTML={{__html:adminNews}}/>
+        {
+          adminNews ? (
+            <div dangerouslySetInnerHTML={{__html:adminNews}}/>
+          ):(
+            <></>
+          )
+        }
         {
           showNews && (
             <div>

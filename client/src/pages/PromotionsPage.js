@@ -41,7 +41,14 @@ function PromotionsPage(props) {
               }}
             >Promotions:</h3> */}
             Promotions:
+            {
+          adminNews ? (
             <div dangerouslySetInnerHTML={{__html:adminPromotions}}/>
+          ):(
+            <></>
+          )
+        }
+            
             {
               showPromo && (<></>
               // <div>blablablablablablablablablablablablablablablablablablablablablablablabla</div>
