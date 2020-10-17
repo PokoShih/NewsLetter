@@ -35,15 +35,16 @@ router.post("/api/signup", (req, res) => {
 });
 
 router.post("/api/admincontent", (req, res) => {
-
-    db.adminContent.update({
+    console.log(req.body)
+    db.adminContent.findByIdAndUpdate("5f8a5cd86beb4b9bd9e2808e",
+        {
         adminSales: req.body.adminSales,
         adminPromotions: req.body.adminPromotions,
         adminNews: req.body.adminNews,
         adminSafety: req.body.adminSafety,
         adminAchievements: req.body.adminAchievements,
         adminBirthdays: req.body.adminBirthdays,
-    })
+    },{upsert:true})
         .then(() => {
             res.json("Success");
         })
