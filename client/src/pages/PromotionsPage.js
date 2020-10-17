@@ -42,7 +42,7 @@ function PromotionsPage(props) {
             >Promotions:</h3> */}
             Promotions:
             {
-          adminNews ? (
+          adminPromotions ? (
             <div dangerouslySetInnerHTML={{__html:adminPromotions}}/>
           ):(
             <></>

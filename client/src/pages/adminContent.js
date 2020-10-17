@@ -11,8 +11,6 @@ import axios from 'axios';
 import JoditEditor from "jodit-react";
 import Grid from "@material-ui/core/Grid";
 
-
-
 const useStyles = makeStyles((theme) => ({
     root: {
         '& .MuiTextField-root': {
@@ -37,7 +35,6 @@ export default function MultilineTextFields() {
     const handleSubmit = () => {
         // setAllValues({
         //     ...allValue,
-
         // }
         const data = Object.assign({},
             {
@@ -50,8 +47,6 @@ export default function MultilineTextFields() {
             },
         )
         console.log(data)
-
-
         axios
             .post('/api/admincontent', data)
             .then((res) => {
@@ -127,15 +122,6 @@ export default function MultilineTextFields() {
     return (
         <form className={classes.root} noValidate autoComplete="off">
             <div>
-                {/* <Editor
-                                    id="adminSales"
-                                    label="Sales"
-                                    placeholder="Sales"
-                                    onChange={editorHandleChange}
-                /> */}
-                {/* <Editor
-                    onChange={editorHandleChange}
-                    /> */}
                 <Grid container spacing={3}>
                     <Grid item xs={6}>
                         <JoditEditor
