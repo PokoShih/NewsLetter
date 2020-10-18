@@ -32,29 +32,29 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     background: "#C66AA1",
     color: "#FFFFFF",
-    height: "25vh",
+    height: "20vh",
   },
 }));
 
 export default function FullWidthGrid() {
   const classes = useStyles();
   const [adminContent, setAdminContent] = React.useState({
-    adminSales:"",
-    adminSafety:"",
-    adminAchievements:"",
-    adminBirthdays:"",
-    adminPromotions:"",
-    adminNews:"",
+    adminSales: "",
+    adminSafety: "",
+    adminAchievements: "",
+    adminBirthdays: "",
+    adminPromotions: "",
+    adminNews: "",
   });
 
   useEffect(() => {
     API.getData()
-        .then((res => {
-          if(res.data && res.data.length > 0){
-            setAdminContent(res.data[0])
-          }
-        }))
-        .catch(err => console.log(err));
+      .then((res => {
+        if (res.data && res.data.length > 0) {
+          setAdminContent(res.data[0])
+        }
+      }))
+      .catch(err => console.log(err));
   }, [])
 
   // useEffect(() => {
@@ -66,70 +66,64 @@ export default function FullWidthGrid() {
 
   return (
     <div className={classes.root}>
-<DataContext.Provider value={adminContent}>
-      <Grid container spacing={1}>
-      <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            <CheckIcon style={{ fontSize: 30 }} />     Safety:
-            {
-              adminContent ? (
-                <div dangerouslySetInnerHTML={{__html:adminContent.adminSafety}}/>
-              ):
-              (<></>)
-            }
-          </Paper>
+      <DataContext.Provider value={adminContent}>
+        <Grid container spacing={1}>
+          <Grid item xs={6}>
+            <Paper className={classes.paper}>
+              <CheckIcon style={{ fontSize: 30 }} />     Safety:
+              {
+                adminContent ? (
+                  <div dangerouslySetInnerHTML={{ __html: adminContent.adminSafety }} />
+                  ) :
+                (<></>)
+              }
+            </Paper>
+          </Grid>
+          <Grid item xs={6}>
+            <Paper className={classes.paper}>
+              <FlareIcon style={{ fontSize: 30 }} />     Achievement:
+              {
+                adminContent ? (
+                  <div dangerouslySetInnerHTML={{ __html: adminContent.adminAchievements }} />
+                  ) :
+                (<></>)
+              }
+            </Paper>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            <FlareIcon style={{ fontSize: 30 }} />     Achievement:
-            {
-              adminContent ? (
-                <div dangerouslySetInnerHTML={{__html:adminContent.adminAchievements}}/>
-              ):
-              (<></>)
-            }
-          </Paper>
+        <Grid container spacing={1}>
+          <Grid item xs={6}>
+            <PromotionsPage />
+          </Grid>
+          <Grid item xs={6}>
+            <NewsPage />
+          </Grid>
         </Grid>
-      </Grid>
-
-      <Grid container spacing={1}>
-        <Grid item xs={6}>
-          <PromotionsPage />
+        <Grid container spacing={1}>
+          <Grid item xs={6}>
+            <Paper className={classes.bottom}>
+              <AttachMoney style={{ fontSize: 30 }} /> Last Week's Sales:
+              {
+                adminContent ? (
+                  <div dangerouslySetInnerHTML={{ __html: adminContent.adminSales }} />
+                  ) :
+                (<></>)
+              }
+            </Paper>
+          </Grid>
+          <Grid item xs={6}>
+            <Paper className={classes.bottom}>
+              <CakeIcon style={{ fontSize: 30 }} />     Birthdays:
+              {
+                adminContent ? (
+                  <div dangerouslySetInnerHTML={{ __html: adminContent.adminBirthdays }} />
+                  ) :
+                (<></>)
+              }
+            </Paper>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <NewsPage />
-        </Grid>
-        
-      </Grid>
-
-      <Grid container spacing={1}>
-      <Grid item xs={6}>
-          <Paper className={classes.bottom}>
-            <AttachMoney style={{ fontSize: 30 }} /> Last Week's Sales: 
-            {
-              adminContent ? (
-                <div dangerouslySetInnerHTML={{__html:adminContent.adminSales}}/>
-              ):
-              (<></>)
-            }
-            
-          </Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.bottom}>
-            <CakeIcon style={{ fontSize: 30 }} />     Birthdays:
-            {
-              adminContent ? (
-                <div dangerouslySetInnerHTML={{__html:adminContent.adminBirthdays}}/>
-              ):
-              (<></>)
-            }
-            
-          </Paper>
-        </Grid>
-      </Grid>
-</DataContext.Provider>
-      
+      </DataContext.Provider>
     </div>
   );
 }

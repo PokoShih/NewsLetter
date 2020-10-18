@@ -4,8 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import PublicIcon from '@material-ui/icons/Public';
 import DataContext from "../utils/DataContext";
 
-const News = "Mimi got Towed";
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
@@ -18,11 +16,9 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-
 function NewsPage() {
   const classes = useStyles();
   const [showNews, setShowNews] = React.useState(false);
-
   const adminContext = useContext(DataContext);
   console.log(adminContext.adminNews);
   return (

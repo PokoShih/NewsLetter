@@ -1,13 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
-// import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-// import { Editor } from 'react-draft-wysiwyg';
-// import draftToHtml from 'draftjs-to-html';
-// import { convertToRaw } from 'draft-js';
 import JoditEditor from "jodit-react";
 import Grid from "@material-ui/core/Grid";
 
@@ -56,14 +52,6 @@ export default function MultilineTextFields() {
             .catch(err => {
                 console.error(err);
             });
-
-    }
-
-    const handleChange = event => {
-        // setAllValues({ ...allValue, [event.target.id]: event.target.value });
-        // console.log(event.target.id)
-        // console.log(event.target.value)
-
     }
     const salesEditor = useRef(null)
     const promotionsEditor = useRef(null)
@@ -71,7 +59,6 @@ export default function MultilineTextFields() {
     const safetyEditor = useRef(null)
     const achievementsEditor = useRef(null)
     const birthdayEditor = useRef(null)
-
     const [content, setContent] = useState('')
     console.log(content);
 
@@ -117,8 +104,6 @@ export default function MultilineTextFields() {
         // ]
     }
 
-    // const [valueEditorState,setValueEditorState] = React.useState({
-    // })
     return (
         <form className={classes.root} noValidate autoComplete="off">
             <div>
@@ -242,9 +227,9 @@ export default function MultilineTextFields() {
                 color="primary"
                 disableElevation
                 onClick={handleSubmit}
-            >
+                >
                 Submit
-                </Button>
+            </Button>
         </form>
     );
 }

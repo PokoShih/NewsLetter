@@ -4,9 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import DataContext from "../utils/DataContext";
 
-const Promotions = "Coca Cola 600mL $2 each with Coles Discount Card";
-
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
@@ -16,21 +13,19 @@ const useStyles = makeStyles((theme) => ({
     height: "30vh",
     borderColor: "grey.500",
   }
-  }));
-
+}));
 
 function PromotionsPage(props) {
   const classes = useStyles();
   const [showPromo, setShowPromo] = React.useState(false);
-
   const adminContext = useContext(DataContext);
   console.log(adminContext)
 
   return (
     <div>
-          <Paper className={classes.paper}>
-            <ThumbUpIcon style={{ fontSize: 30 }} />
-            {/* <h3
+      <Paper className={classes.paper}>
+        <ThumbUpIcon style={{ fontSize: 30 }} />
+        {/* <h3
               onClick={() => {
                 console.log("worked?");
                 if (showPromo === true) {
@@ -40,21 +35,20 @@ function PromotionsPage(props) {
                 }
               }}
             >Promotions:</h3> */}
-            Promotions:
-            {
-          adminContext.adminPromotions ? (
-            <div dangerouslySetInnerHTML={{__html:adminContext.adminPromotions}}/>
-          ):(
+          Promotions:
+          {
+            adminContext.adminPromotions ? (
+            <div dangerouslySetInnerHTML={{ __html: adminContext.adminPromotions }} />
+            ) : (
             <></>
           )
         }
-            
-            {
-              showPromo && (<></>
-              // <div>blablablablablablablablablablablablablablablablablablablablablablablabla</div>
-              )
-            }
-          </Paper>
+        {
+          showPromo && (
+          <></>
+          )
+        }
+      </Paper>
     </div>
   );
 }

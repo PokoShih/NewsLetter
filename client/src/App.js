@@ -55,11 +55,6 @@ export default function App() {
           <Grid item xs={8}>
             <Link
               to="/">
-              {/* <CardMedia
-            className={classes.media}
-            image={logo}
-            title="Home"
-          /> */}
               <img
                 src={logo}
                 alt="company Logo"
@@ -74,7 +69,6 @@ export default function App() {
               developerState.isAuthenticated ? (
                 <div className={classes.div}>
                   {developerState.isAdmin ? (
-
                     <Link
                       to="/admincontent">
                       <Button
@@ -83,22 +77,22 @@ export default function App() {
                         className={classes.button}
                       >
                         Edit Content
-                </Button>
+                      </Button>
                     </Link>
                   ) :
                     (<></>)
                   }
-                  <Link
-                    to="/logout">
-                    <Button
-                      onClick={handleLogOut}
-                      variant="contained"
-                      color="primary"
-                      className={classes.button}
-                    >
-                      Log Out
-                </Button>
-                  </Link>
+                    <Link
+                      to="/logout">
+                      <Button
+                        onClick={handleLogOut}
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                      >
+                        Log Out
+                      </Button>
+                    </Link>
                 </div>
               ) :
                 (
@@ -111,7 +105,7 @@ export default function App() {
                         className={classes.button}
                       >
                         Sign Up
-                  </Button>
+                      </Button>
                     </Link>
                     <Link
                       to="/login">
@@ -121,34 +115,34 @@ export default function App() {
                         className={classes.button}
                       >
                         Login
-                  </Button>
+                      </Button>
                     </Link>
                   </div>
                 )
             }
           </Grid>
         </Grid>
-        <Switch>
-          <Route
-            path="/login" component={LogIn}>
-            <LogIn
-            // hello={developerState}
-            // setDev={setDeveloperState}
-            />
-          </Route>
-          <Route
-            path="/adminContent" component={AdminContent}>
-            <AdminContent />
-          </Route>
-          <Route
-            path="/signup" component={SignUp}>
-            <SignUp />
-          </Route>
-          <Route
-            exact path="/">
-            <PublicPage />
-          </Route>
-        </Switch>
+          <Switch>
+            <Route
+              path="/login" component={LogIn}>
+              <LogIn
+                // hello={developerState}
+                // setDev={setDeveloperState}
+              />
+            </Route>
+            <Route
+              path="/adminContent" component={AdminContent}>
+              <AdminContent />
+            </Route>
+            <Route
+              path="/signup" component={SignUp}>
+              <SignUp />
+            </Route>
+            <Route
+              exact path="/">
+              <PublicPage />
+            </Route>
+          </Switch>
         {/* </div> */}
       </DeveloperContext.Provider>
     </Router>
