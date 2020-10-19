@@ -1,2 +1,6 @@
 [1012/174208.304:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
 [1015/215655.585:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1018/161330.069:WARNING:process_reader_win.cc(156)] Thread 12232 should be suspended, but previous_suspend_count is 0
+[1018/161330.069:WARNING:process_reader_win.cc(156)] Thread 7008 should be suspended, but previous_suspend_count is 0
+[1018/161330.709:ERROR:process_info.cc(617)] range at 0x309b49e000, size 0x2000 fully unreadable
+[1018/161330.709:ERROR:process_info.cc(617)] range at 0x309bc9e000, size 0x2000 fully unreadable

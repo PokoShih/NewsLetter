@@ -8,7 +8,7 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-
+import Typography from '@material-ui/core/Typography';
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import AdminContent from "./pages/adminContent";
@@ -55,13 +55,16 @@ export default function App() {
           <Grid item xs={8}>
             <Link
               to="/">
-              <img
+              <Typography variant="h3" component="h4" gutterBottom color="primary">
+                CSA News Letter
+              </Typography>
+              {/* <img
                 src={logo}
                 alt="company Logo"
                 height="65px"
                 width="200px"
               >
-              </img>
+              </img> */}
             </Link>
           </Grid>
           <Grid item xs={4}>

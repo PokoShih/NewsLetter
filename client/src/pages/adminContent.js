@@ -110,13 +110,24 @@ export default function MultilineTextFields() {
                 <Grid container spacing={3}>
                     <Grid item xs={6}>
                         <JoditEditor
-                            ref={salesEditor}
-                            id="adminSales"
+                            ref={safetyEditor}
+                            id="adminSafety"
                             value={content}
-                            config={config.Sales}
+                            config={config.Safety}
                             tabIndex={1}
                         />
                     </Grid>
+                    <Grid item xs={6}>
+                        <JoditEditor
+                            ref={achievementsEditor}
+                            id="adminAchievements"
+                            value={content}
+                            config={config.Achievements}
+                            tabIndex={1}
+                        />
+                    </Grid>
+                </Grid>
+                <Grid container spacing={3}>
                     <Grid item xs={6}>
                         <JoditEditor
                             ref={promotionsEditor}
@@ -126,8 +137,6 @@ export default function MultilineTextFields() {
                             tabIndex={1}
                         />
                     </Grid>
-                </Grid>
-                <Grid container spacing={3}>
                     <Grid item xs={6}>
                         <JoditEditor
                             ref={newsEditor}
@@ -137,23 +146,14 @@ export default function MultilineTextFields() {
                             tabIndex={1}
                         />
                     </Grid>
-                    <Grid item xs={6}>
-                        <JoditEditor
-                            ref={safetyEditor}
-                            id="adminSafety"
-                            value={content}
-                            config={config.Safety}
-                            tabIndex={1}
-                        />
-                    </Grid>
                 </Grid>
                 <Grid container spacing={3}>
                     <Grid item xs={6}>
                         <JoditEditor
-                            ref={achievementsEditor}
-                            id="adminAchievements"
+                            ref={salesEditor}
+                            id="adminSales"
                             value={content}
-                            config={config.Achievements}
+                            config={config.Sales}
                             tabIndex={1}
                         />
                     </Grid>
