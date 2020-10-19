@@ -81,7 +81,7 @@ export default function LogIn() {
         setDeveloperState({ isAuthenticated: true, isAdmin: res.data.admin });
       })
       .catch(err => {
-        alert("Password invalid, please try again")
+        alert("Email/Password invalid, please double check and try again")
         console.log("no");
         setDeveloperState({ isAuthenticated: false });
         console.error(err);
