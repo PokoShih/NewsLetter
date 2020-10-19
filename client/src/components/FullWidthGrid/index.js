@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: "left",
     color: "#FFFFFF",
+    background: "#C66AA1",
     height: "50vh",
     borderColor: "grey.500",
   },
