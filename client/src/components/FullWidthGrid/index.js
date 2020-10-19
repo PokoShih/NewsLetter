@@ -23,8 +23,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: "left",
     color: "#FFFFFF",
-    background: "#C66AA1",
-    height: "30vh",
+    height: "50vh",
     borderColor: "grey.500",
   },
   bottom: {
@@ -32,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     background: "#C66AA1",
     color: "#FFFFFF",
-    height: "25vh",
+    height: "50vh",
+
   },
 }));
 
