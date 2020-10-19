@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     background: "#C66AA1",
     color: "#FFFFFF",
-    height: "20vh",
+    height: "25vh",
   },
 }));
 
