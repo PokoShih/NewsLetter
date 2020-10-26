@@ -8,12 +8,14 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+// import Fab from '@material-ui/core/Fab';
+import HomeIcon from '@material-ui/icons/Home';
 import Typography from '@material-ui/core/Typography';
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import AdminContent from "./pages/adminContent";
 import DeveloperContext from "./utils/DeveloperContext";
-import logo from "./components/img/logo.png";
+// import logo from "./components/img/logo.png";
 import Grid from "@material-ui/core/Grid";
 // import Icon from '@material-ui/core/Icon';
 
@@ -27,7 +29,7 @@ const useStyles = makeStyles({
       flexGrow: 1,
       fontSize: 24,
       height: "100%",
-  }
+    }
   // div:{
   // alignContent: 'center'
   // }
@@ -58,12 +60,25 @@ export default function App() {
     <Router>
       <DeveloperContext.Provider value={value}>
         <Grid container spacing={3}>
-          <Grid item xs={8}>
+          <Grid item xs={4}>
             <Link
               to="/">
               <Typography className={classes.paper} variant="h3" component="h4" gutterBottom color="primary">
-                CSA News Letter
+                <HomeIcon
+                  style={{ fontSize: 60 }}
+                />
+                  CSA News Letter
               </Typography>
+              {/* <Fab
+                variant="extended"
+                size="small"
+                color="primary"
+                aria-label="add"
+                className={classes.margin}
+              >
+                <HomeIcon style={{ fontSize: 60 }} className={classes.extendedIcon} />
+                CSA
+              </Fab> */}
               {/* <img
                 src={logo}
                 alt="company Logo"
@@ -73,7 +88,9 @@ export default function App() {
               </img> */}
             </Link>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={5}>
+          </Grid>
+          <Grid item xs={3}>
             {
               developerState.isAuthenticated ? (
                 <div className={classes.div}>
