@@ -22,6 +22,12 @@ const useStyles = makeStyles({
     maxWidth: 345,
     background: "#B7127E",
   },
+  top: {
+      fontFamily: "Avant Garde Gothic Demi Bold",
+      flexGrow: 1,
+      fontSize: 24,
+      height: "100%",
+  }
   // div:{
   // alignContent: 'center'
   // }
@@ -55,7 +61,7 @@ export default function App() {
           <Grid item xs={8}>
             <Link
               to="/">
-              <Typography variant="h3" component="h4" gutterBottom color="primary">
+              <Typography className={classes.paper} variant="h3" component="h4" gutterBottom color="primary">
                 CSA News Letter
               </Typography>
               {/* <img
