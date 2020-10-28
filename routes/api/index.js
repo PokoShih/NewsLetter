@@ -55,7 +55,8 @@ router.get("/api/admincontent", (req, res) => {
     db.adminContent.find({
     })
         .then((data) => {
-            console.log(data)
+            console.log("-------------------------");
+            console.log(data);
             res.json(data);
         })
         .catch(err => {

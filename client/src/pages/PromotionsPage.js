@@ -24,7 +24,7 @@ function PromotionsPage(props) {
   return (
     <div>
       <Paper className={classes.paper}>
-        <ThumbUpIcon style={{ fontSize: 30 }} />
+        <ThumbUpIcon style={{ fontSize: 16 }} />
         {/* <h3
               onClick={() => {
                 console.log("worked?");

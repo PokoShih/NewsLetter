@@ -25,7 +25,7 @@ function NewsPage() {
     <div>
       <Paper
         className={classes.paper}>
-        <PublicIcon style={{ fontSize: 30 }} />
+        <PublicIcon style={{ fontSize: 16 }} />
         {/* <h3
           onClick={() => {
             if (showNews === true) {

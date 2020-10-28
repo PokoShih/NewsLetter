@@ -1,6 +1,7 @@
-/* #root {
-    background-color:#E18A1E;
-} */
-html, body, #app, #app>div {
-    height: 100%
+#root {
+    height:"100vh"
     }
+html, body, #app, #app>div {
+    font-size: small;
+    }
+

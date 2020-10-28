@@ -18,8 +18,10 @@ import DeveloperContext from "./utils/DeveloperContext";
 // import logo from "./components/img/logo.png";
 import Grid from "@material-ui/core/Grid";
 // import Icon from '@material-ui/core/Icon';
+import Container from '@material-ui/core/Container';
 
-const useStyles = makeStyles({
+
+const useStyles = makeStyles((theme)=>({
   root: {
     maxWidth: 345,
     background: "#B7127E",
@@ -29,7 +31,11 @@ const useStyles = makeStyles({
       flexGrow: 1,
       fontSize: 24,
       height: "100%",
-    }
+  },
+  paper:{
+    height:"6vh",
+  }
+
   // div:{
   // alignContent: 'center'
   // }
@@ -37,7 +43,7 @@ const useStyles = makeStyles({
   //   height: 140,
   //   maxWidth:140
   // }
-});
+}));
 
 
 export default function App() {
@@ -57,121 +63,127 @@ export default function App() {
   };
 
   return (
-    <Router>
-      <DeveloperContext.Provider value={value}>
-        <Grid container spacing={3}>
-          <Grid item xs={4}>
-            <Link
-              to="/">
-              <Typography className={classes.paper} variant="h3" component="h4" gutterBottom color="primary">
-                <HomeIcon
-                  style={{ fontSize: 60 }}
-                />
-                  CSA News Letter
-              </Typography>
-              {/* <Fab
-                variant="extended"
-                size="small"
-                color="primary"
-                aria-label="add"
-                className={classes.margin}
-              >
-                <HomeIcon style={{ fontSize: 60 }} className={classes.extendedIcon} />
-                CSA
-              </Fab> */}
-              {/* <img
-                src={logo}
-                alt="company Logo"
-                height="65px"
-                width="200px"
-              >
-              </img> */}
-            </Link>
-          </Grid>
-          <Grid item xs={5}>
-          </Grid>
-          <Grid item xs={3}>
-            {
-              developerState.isAuthenticated ? (
-                <div className={classes.div}>
-                  {developerState.isAdmin ? (
-                    <Link
-                      to="/admincontent">
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        className={classes.button}
-                      >
-                        Edit Content
-                      </Button>
-                    </Link>
-                  ) :
-                    (<></>)
-                  }
-                    <Link
-                      to="/logout">
-                      <Button
-                        onClick={handleLogOut}
-                        variant="contained"
-                        color="primary"
-                        className={classes.button}
-                      >
-                        Log Out
-                      </Button>
-                    </Link>
-                </div>
-              ) :
-                (
+    <Container>
+      <Router>
+        <DeveloperContext.Provider value={value}>
+          <Grid container spacing={3}>
+            <Grid item xs={5} sm={4} md={3} lg={3}>
+              <Link
+                to="/">
+                <Typography className={classes.paper} variant="h5" component="h4" gutterBottom color="primary">
+                  <HomeIcon
+                    style={{ fontSize: 20 }} 
+                  />
+                    CSA News
+                </Typography>
+                {/* <Fab
+                  variant="extended"
+                  size="small"
+                  color="primary"
+                  aria-label="add"
+                  className={classes.margin}
+                >
+                  <HomeIcon style={{ fontSize: 60 }} className={classes.extendedIcon} />
+                  CSA
+                </Fab> */}
+                {/* <img
+                  src={logo}
+                  alt="company Logo"
+                  height="65px"
+                  width="200px"
+                >
+                </img> */}
+              </Link>
+            </Grid>
+            <Grid item xs={2} sm={4}md={6} lg={7}>
+            </Grid>
+            <Grid item xs={5} sm={4} md={3} lg={2}>
+              {
+                developerState.isAuthenticated ? (
                   <div className={classes.div}>
-                    <Link
-                      to="/signup">
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        className={classes.button}
-                      >
-                        Sign Up
-                      </Button>
-                    </Link>
-                    <Link
-                      to="/login">
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        className={classes.button}
-                      >
-                        Login
-                      </Button>
-                    </Link>
+                    {developerState.isAdmin ? (
+                      <Link
+                        to="/admincontent">
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          size="small"
+                          className={classes.button}
+                        >
+                          Edit Content
+                        </Button>
+                      </Link>
+                    ) :
+                      (<></>)
+                    }
+                      <Link
+                        to="/logout">
+                        <Button
+                          onClick={handleLogOut}
+                          variant="contained"
+                          color="primary"
+                          size="small"
+                          className={classes.button}
+                        >
+                          Log Out
+                        </Button>
+                      </Link>
                   </div>
-                )
-            }
+                ) :
+                  (
+                    <div className={classes.div}>
+                      <Link
+                        to="/signup">
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          size="small"
+                          className={classes.button}
+                        >
+                          Sign Up
+                        </Button>
+                      </Link>
+                      <Link
+                        to="/login">
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          size="small"
+                          className={classes.button}
+                        >
+                          Login
+                        </Button>
+                      </Link>
+                    </div>
+                  )
+              }
+            </Grid>
           </Grid>
-        </Grid>
-          <Switch>
-            <Route
-              path="/login" component={LogIn}>
-              <LogIn
-                // hello={developerState}
-                // setDev={setDeveloperState}
-              />
-            </Route>
-            <Route
-              path="/adminContent" component={AdminContent}>
-              <AdminContent />
-            </Route>
-            <Route
-              path="/signup" component={SignUp}>
-              <SignUp />
-            </Route>
-            <Route
-              exact path="/">
-              <PublicPage />
-            </Route>
-          </Switch>
-        {/* </div> */}
-      </DeveloperContext.Provider>
-    </Router>
+            <Switch>
+              <Route
+                path="/login" component={LogIn}>
+                <LogIn
+                  // hello={developerState}
+                  // setDev={setDeveloperState}
+                />
+              </Route>
+              <Route
+                path="/adminContent" component={AdminContent}>
+                <AdminContent />
+              </Route>
+              <Route
+                path="/signup" component={SignUp}>
+                <SignUp />
+              </Route>
+              <Route
+                exact path="/">
+                <PublicPage />
+              </Route>
+            </Switch>
+          {/* </div> */}
+        </DeveloperContext.Provider>
+      </Router>
+      </Container>
   );
 }
 

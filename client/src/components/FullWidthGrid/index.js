@@ -10,13 +10,13 @@ import PromotionsPage from "../../pages/PromotionsPage";
 import NewsPage from "../../pages/NewsPage";
 import API from "../../utils/API";
 import DataContext from "../../utils/DataContext";
-
+// import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: "Avant Garde Gothic Demi Bold",
     flexGrow: 1,
-    fontSize: 24,
+    fontSize: 12,
     height: "100%",
   },
   paper: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     color: "#FFFFFF",
     background: "#C66AA1",
-    height: "20vh",
+    height: "25vh",
     borderColor: "grey.500",
   },
   bottom: {
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     background: "#C66AA1",
     color: "#FFFFFF",
-    height: "20vh",
+    height: "25vh",
 
   },
 }));
@@ -71,18 +71,18 @@ export default function FullWidthGrid() {
         <Grid container spacing={1}>
           <Grid item xs={6}>
             <Paper className={classes.paper}>
-              <CheckIcon style={{ fontSize: 30 }} />     Safety:
+              <CheckIcon style={{ fontSize: 16 }} /> Safety:
               {
                 adminContent ? (
                   <div dangerouslySetInnerHTML={{ __html: adminContent.adminSafety }} />
                   ) :
-                (<></>)
+                (<>Safety:</>)
               }
             </Paper>
           </Grid>
           <Grid item xs={6}>
             <Paper className={classes.paper}>
-              <FlareIcon style={{ fontSize: 30 }} />     Achievement:
+              <FlareIcon style={{ fontSize: 16 }} /> Achievement:
               {
                 adminContent ? (
                   <div dangerouslySetInnerHTML={{ __html: adminContent.adminAchievements }} />
@@ -103,7 +103,7 @@ export default function FullWidthGrid() {
         <Grid container spacing={1}>
           <Grid item xs={6}>
             <Paper className={classes.bottom}>
-              <AttachMoney style={{ fontSize: 30 }} /> Last Week's Sales:
+              <AttachMoney style={{ fontSize: 16 }} /> Last Week's Sales:
               {
                 adminContent ? (
                   <div dangerouslySetInnerHTML={{ __html: adminContent.adminSales }} />
@@ -114,7 +114,7 @@ export default function FullWidthGrid() {
           </Grid>
           <Grid item xs={6}>
             <Paper className={classes.bottom}>
-              <CakeIcon style={{ fontSize: 30 }} />     Birthdays:
+              <CakeIcon style={{ fontSize: 16 }} />     Birthdays:
               {
                 adminContent ? (
                   <div dangerouslySetInnerHTML={{ __html: adminContent.adminBirthdays }} />
