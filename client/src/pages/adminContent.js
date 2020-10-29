@@ -103,68 +103,170 @@ export default function MultilineTextFields() {
         //     }
         // ]
     }
-
+    const [showSafety, setShowSafety] = React.useState(false);
+    const [showAchievements, setShowAchievements] = React.useState(false);
+    const [showPromotions, setShowPromotions] = React.useState(false);
+    const [showNews, setShowNews] = React.useState(false);
+    const [showSales, setShowSales] = React.useState(false);
+    const [showBirthdays, setShowBirthdays] = React.useState(false);
     return (
         <form className={classes.root} noValidate autoComplete="off">
             <div>
+            <Button variant="outlined" color="primary"
+                onClick={() => {
+                    console.log("worked?");
+                    if (showSafety === true) {
+                    setShowSafety(false);
+                    } else {
+                    setShowSafety(true);
+                    }
+                }}
+            >
+                Safety
+            </Button>
+            <Button variant="outlined" color="primary"
+                onClick={() => {
+                    console.log("worked?");
+                    if (showAchievements === true) {
+                        setShowAchievements(false);
+                    } else {
+                        setShowAchievements(true);
+                    }
+                }}
+            >
+                Achievements
+            </Button>
+            <Button variant="outlined" color="primary"
+                onClick={() => {
+                    console.log("worked?");
+                    if (showPromotions === true) {
+                        setShowPromotions(false);
+                    } else {
+                        setShowPromotions(true);
+                    }
+                }}
+            >
+                Promotions
+            </Button>
+            <Button variant="outlined" color="primary"
+                onClick={() => {
+                    console.log("worked?");
+                    if (showNews === true) {
+                        setShowNews(false);
+                    } else {
+                        setShowNews(true);
+                    }
+                }}
+            >
+                News
+            </Button>
+            <Button variant="outlined" color="primary"
+                onClick={() => {
+                    console.log("worked?");
+                    if (showSales === true) {
+                        setShowSales(false);
+                    } else {
+                        setShowSales(true);
+                    }
+                }}
+            >
+                Sales
+            </Button>
+            <Button variant="outlined" color="primary"
+                onClick={() => {
+                    console.log("worked?");
+                    if (showBirthdays === true) {
+                        setShowBirthdays(false);
+                    } else {
+                        setShowBirthdays(true);
+                    }
+                }}
+            >
+                Birthdays
+            </Button>
                 <Grid container spacing={3}>
                     <Grid item xs={6}>
-                        <JoditEditor
+                        {
+                            showSafety && (
+                                <JoditEditor
                             ref={safetyEditor}
                             id="adminSafety"
                             value={content}
                             config={config.Safety}
                             tabIndex={1}
                         />
+                            )
+                        }
                     </Grid>
                     <Grid item xs={6}>
-                        <JoditEditor
-                            ref={achievementsEditor}
-                            id="adminAchievements"
-                            value={content}
-                            config={config.Achievements}
-                            tabIndex={1}
-                        />
-                    </Grid>
-                </Grid>
-                <Grid container spacing={3}>
-                    <Grid item xs={6}>
-                        <JoditEditor
-                            ref={promotionsEditor}
-                            id="adminPromotions"
-                            value={content}
-                            config={config.Promotions}
-                            tabIndex={1}
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <JoditEditor
-                            ref={newsEditor}
-                            id="adminNews"
-                            value={content}
-                            config={config.News}
-                            tabIndex={1}
-                        />
+                        {
+                            showAchievements && (
+                                <JoditEditor
+                                ref={achievementsEditor}
+                                id="adminAchievements"
+                                value={content}
+                                config={config.Achievements}
+                                tabIndex={1}
+                            />
+                            )
+                        }
                     </Grid>
                 </Grid>
                 <Grid container spacing={3}>
                     <Grid item xs={6}>
-                        <JoditEditor
-                            ref={salesEditor}
-                            id="adminSales"
-                            value={content}
-                            config={config.Sales}
-                            tabIndex={1}
-                        />
+                        {
+                            showPromotions && (
+                                <JoditEditor
+                                ref={promotionsEditor}
+                                id="adminPromotions"
+                                value={content}
+                                config={config.Promotions}
+                                tabIndex={1}
+                            />
+                            )
+                        }
                     </Grid>
                     <Grid item xs={6}>
-                        <JoditEditor
-                            ref={birthdayEditor}
-                            id="adminBirthdays"
-                            value={content}
-                            config={config.Birthdays}
-                            tabIndex={1}
-                        />
+                        {
+                            showNews && (
+                                <JoditEditor
+                                ref={newsEditor}
+                                id="adminNews"
+                                value={content}
+                                config={config.News}
+                                tabIndex={1}
+                            />
+                            )
+                        }
+                    </Grid>
+                </Grid>
+                <Grid container spacing={3}>
+                    <Grid item xs={6}>
+                        {
+                            showSales && (
+                                <JoditEditor
+                                ref={salesEditor}
+                                id="adminSales"
+                                value={content}
+                                config={config.Sales}
+                                tabIndex={1}
+                            />
+                            )
+                        }
+                    </Grid>
+                    <Grid item xs={6}>
+                        {
+                            showBirthdays && (
+                                <JoditEditor
+                                ref={birthdayEditor}
+                                id="adminBirthdays"
+                                value={content}
+                                config={config.Birthdays}
+                                tabIndex={1}
+                            />
+                            )
+                        }
+
                     </Grid>
                 </Grid>
                 {/* <TextField
