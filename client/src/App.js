@@ -97,7 +97,7 @@ export default function App() {
             </Grid>
             <Grid item xs={2} sm={4}md={6} lg={7}>
             </Grid>
-            <Grid item xs={5} sm={4} md={3} lg={2}>
+            {/* <Grid item xs={5} sm={4} md={3} lg={2}>
               {
                 developerState.isAuthenticated ? (
                   <div className={classes.div}>
@@ -157,7 +157,7 @@ export default function App() {
                     </div>
                   )
               }
-            </Grid>
+            </Grid> */}
           </Grid>
             <Switch>
               <Route
