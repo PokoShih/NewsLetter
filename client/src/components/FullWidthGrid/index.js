@@ -33,8 +33,15 @@ const useStyles = makeStyles((theme) => ({
     background: "#C66AA1",
     color: "#FFFFFF",
     height: "25vh",
-
   },
+  safety: {
+    padding: theme.spacing(2),
+    textAlign: "left",
+    color: "#FFFFFF",
+    background: "#C66AA1",
+    height: "100vh",
+    borderColor: "grey.500",
+  }
 }));
 
 export default function FullWidthGrid() {
@@ -69,8 +76,8 @@ export default function FullWidthGrid() {
     <div className={classes.root}>
       <DataContext.Provider value={adminContent}>
         <Grid container spacing={1}>
-          <Grid item xs={6}>
-            <Paper className={classes.paper}>
+          <Grid item xs={12}>
+            <Paper className={classes.safety}>
               <CheckIcon style={{ fontSize: 16 }} /> Safety:
               {
                 adminContent ? (
@@ -80,7 +87,7 @@ export default function FullWidthGrid() {
               }
             </Paper>
           </Grid>
-          <Grid item xs={6}>
+          {/* <Grid item xs={6}>
             <Paper className={classes.paper}>
               <FlareIcon style={{ fontSize: 16 }} /> Achievement:
               {
@@ -90,17 +97,17 @@ export default function FullWidthGrid() {
                 (<></>)
               }
             </Paper>
-          </Grid>
+          </Grid> */}
         </Grid>
-        <Grid container spacing={1}>
+        {/* <Grid container spacing={1}>
           <Grid item xs={6}>
             <PromotionsPage />
           </Grid>
           <Grid item xs={6}>
             <NewsPage />
           </Grid>
-        </Grid>
-        <Grid container spacing={1}>
+        </Grid> */}
+        {/* <Grid container spacing={1}>
           <Grid item xs={6}>
             <Paper className={classes.bottom}>
               <AttachMoney style={{ fontSize: 16 }} /> Last Week's Sales:
@@ -123,7 +130,7 @@ export default function FullWidthGrid() {
               }
             </Paper>
           </Grid>
-        </Grid>
+        </Grid> */}
       </DataContext.Provider>
     </div>
   );

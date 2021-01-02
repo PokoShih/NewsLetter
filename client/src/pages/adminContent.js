@@ -124,7 +124,7 @@ export default function MultilineTextFields() {
             >
                 Safety
             </Button>
-            <Button variant="outlined" color="primary"
+            {/* <Button variant="outlined" color="primary"
                 onClick={() => {
                     console.log("worked?");
                     if (showAchievements === true) {
@@ -183,7 +183,7 @@ export default function MultilineTextFields() {
                 }}
             >
                 Birthdays
-            </Button>
+            </Button> */}
                 <Grid container spacing={3}>
                     <Grid item xs={6}>
                         {
