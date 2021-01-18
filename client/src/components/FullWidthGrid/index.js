@@ -12,6 +12,7 @@ import API from "../../utils/API";
 import DataContext from "../../utils/DataContext";
 // import Typography from '@material-ui/core/Typography';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: "Avant Garde Gothic Demi Bold",
@@ -34,13 +35,20 @@ const useStyles = makeStyles((theme) => ({
     color: "#FFFFFF",
     height: "25vh",
   },
+  alert: {
+    padding: theme.spacing(2),
+    textAlign: "left",
+    background: "#EDF7ED",
+    color: "black",
+  },
   safety: {
     padding: theme.spacing(2),
     textAlign: "left",
-    color: "#FFFFFF",
-    background: "#C66AA1",
-    height: "100vh",
+    color: "black",
+    background: "#E8F4FD",
+    height: "90vh",
     borderColor: "grey.500",
+    
   }
 }));
 
@@ -75,7 +83,15 @@ export default function FullWidthGrid() {
   return (
     <div className={classes.root}>
       <DataContext.Provider value={adminContent}>
+          
         <Grid container spacing={1}>
+
+        <Grid item xs={12}>
+            <Paper className={classes.alert}>
+              <FlareIcon style={{ fontSize: 12 }} /> Your Safety is Upmost Priority, please do not use your mobile while driving
+            </Paper>
+          </Grid>
+
           <Grid item xs={12}>
             <Paper className={classes.safety}>
               <CheckIcon style={{ fontSize: 16 }} /> Safety:

@@ -22,6 +22,7 @@ import Grid from "@material-ui/core/Grid";
 import Container from '@material-ui/core/Container';
 import { Accelerometer } from "accelerometer";
 
+
 const useStyles = makeStyles((theme)=>({
   root: {
     maxWidth: 345,
@@ -32,6 +33,12 @@ const useStyles = makeStyles((theme)=>({
       flexGrow: 1,
       fontSize: 24,
       height: "100%",
+  },
+  header: {
+    fontFamily: "Avant Garde Gothic Demi Bold",
+    flexGrow: 1,
+    fontSize: 24,
+    height: "5vh",
   },
   paper:{
     height:"6vh",
@@ -89,11 +96,12 @@ export default function App() {
     setDeveloperState(false);
   };
 
+
   return (
     <Container>
       <Router>
         <DeveloperContext.Provider value={value}>
-          <Grid container spacing={3}>
+          <Grid container spacing={3} className={classes.header}>
             <Grid item xs={5} sm={4} md={3} lg={3}>
               <Link
                 to="/">
@@ -103,6 +111,7 @@ export default function App() {
                   />
                     CSA News
                 </Typography>
+                
                 {/* <Fab
                   variant="extended"
                   size="small"
