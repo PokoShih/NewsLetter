@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     background: "#EDF7ED",
     color: "black",
+    fontWeight: "Bold"
   },
   safety: {
     padding: theme.spacing(2),
