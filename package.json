@@ -20,6 +20,7 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "accelerometer": "^1.2.0",
     "axios": "^0.18.1",
     "bcrypt": "^5.0.0",
     "draftjs-to-html": "^0.9.1",
@@ -30,6 +31,9 @@
     "mui-rte": "^1.25.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "react-draft-wysiwyg": "^1.14.5"
+    "react-accelerometer": "^1.0.1",
+    "react-draft-wysiwyg": "^1.14.5",
+    "react-native": "^0.63.4",
+    "react-native-sensors": "^7.0.2"
   }
 }

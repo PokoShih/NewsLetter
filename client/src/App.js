@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+// import ReactNativeSensors from 'react-native-sensors';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import FullWidthGrid from './components/FullWidthGrid';
@@ -19,7 +20,7 @@ import DeveloperContext from "./utils/DeveloperContext";
 import Grid from "@material-ui/core/Grid";
 // import Icon from '@material-ui/core/Icon';
 import Container from '@material-ui/core/Container';
-
+import { Accelerometer } from "accelerometer";
 
 const useStyles = makeStyles((theme)=>({
   root: {
@@ -47,6 +48,32 @@ const useStyles = makeStyles((theme)=>({
 
 
 export default function App() {
+  //------------------------------------------------
+  // let accelerometer = null;
+  // try {
+  // accelerometer = new Accelerometer.Accelerometer({ referenceFrame: 'device' });
+  // accelerometer.addEventListener('error', event => {
+  // // Handle runtime errors.
+  // if (event.error.name === 'NotAllowedError') {
+  // // Branch to code for requesting permission.
+  // } else if (event.error.name === 'NotReadableError' ) {
+  // console.log('Cannot connect to the sensor.');
+  // }
+  // });
+  // // accelerometer.addEventListener('reading', () => reloadOnShake(accelerometer));
+  // accelerometer.start();
+  // } catch (error) {
+  // // Handle construction errors.
+  // if (error.name === 'SecurityError') {
+  // // See the note above about feature policy.
+  // console.log('Sensor construction was blocked by a feature policy.');
+  // } else if (error.name === 'ReferenceError') {
+  // console.log('Sensor is not supported by the User Agent.');
+  // } else {
+  // throw error;
+  // }}
+
+  // ------------------------------------------------
   const classes = useStyles();
   const [developerState, setDeveloperState] = React.useState({
     isAuthenticated: false,
