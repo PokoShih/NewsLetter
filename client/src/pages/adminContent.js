@@ -34,12 +34,12 @@ export default function MultilineTextFields() {
         // }
         const data = Object.assign({},
             {
-                [salesEditor.current.id]: salesEditor.current.value,
-                [promotionsEditor.current.id]: promotionsEditor.current.value,
-                [newsEditor.current.id]: newsEditor.current.value,
+                // [salesEditor.current.id]: salesEditor.current.value,
+                // [promotionsEditor.current.id]: promotionsEditor.current.value,
+                // [newsEditor.current.id]: newsEditor.current.value,
                 [safetyEditor.current.id]: safetyEditor.current.value,
-                [achievementsEditor.current.id]: achievementsEditor.current.value,
-                [birthdayEditor.current.id]: birthdayEditor.current.value
+                // [achievementsEditor.current.id]: achievementsEditor.current.value,
+                // [birthdayEditor.current.id]: birthdayEditor.current.value
             },
         )
         console.log(data)
